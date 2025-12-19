@@ -131,7 +131,7 @@ trigger_workflow() {
   echo >&2 "  {\"ref\":\"${ref}\",\"inputs\":${client_payload}}"
 
   api "workflows/${INPUT_WORKFLOW_FILE_NAME}/dispatches" \
-    --data "{\"ref\":\"${ref}\",\"inputs\":${client_payload}}"
+    --data "{\"ref\":\"${ref}\",\"inputs\":${client_payload}}" > /dev/null
 
   NEW_RUNS=$OLD_RUNS
   while [ "$NEW_RUNS" = "$OLD_RUNS" ]
